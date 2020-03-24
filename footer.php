@@ -75,138 +75,138 @@
 
 
 <style>
-    body {
-        margin: 0;
-    }
+body {
+    margin: 0;
+}
 
-    .footer {
-        display: flex;
-        justify-content: space-between;
-    }
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
 
-    .footer-container {
-        font-size: small;
-        padding: 15px 10px 15px 10px;
-        color: white;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        /* margin: 0; */
-        background: #252F38;
-    }
+.footer-container {
+    font-size: small;
+    padding: 15px 10px 15px 10px;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* margin: 0; */
+    background: #252F38;
+}
 
-    #footer-logo {
-        /* float: left; */
-        filter: invert(100%);
-        /* width: 150px;*/
-        height: 40px;
-        /* float: left; */
-    }
+#footer-logo {
+    /* float: left; */
+    filter: invert(100%);
+    /* width: 150px;*/
+    height: 40px;
+    /* float: left; */
+}
 
-    .footer-elements {
-        padding: 0px;
-        /* display: inline-block; */
-    }
+.footer-elements {
+    padding: 0px;
+    /* display: inline-block; */
+}
 
-    #footer3 a {
-        color: white;
-        /* font-weight: 500; */
-        padding-right: 5px;
-        text-decoration: none;
-        line-height: 43px;
-
-
-    }
-
-    #footer3 a:hover {
-        color: #1EC0CA;
-    }
-
-    #footer3 li {
-        display: inline;
-        /* margin: 0px */
-    }
-
-    #footer3 ul {
-        margin: 0px;
-        padding: 0px
-    }
+#footer3 a {
+    color: white;
+    /* font-weight: 500; */
+    padding-right: 5px;
+    text-decoration: none;
+    line-height: 43px;
 
 
+}
 
-    .copyright-info {
-        /* margin: 0px; */
-        display: inline-block;
-        padding-left: 10px;
+#footer3 a:hover {
+    color: #1EC0CA;
+}
 
-    }
+#footer3 li {
+    display: inline;
+    /* margin: 0px */
+}
 
-    .icons {
-        display: inline-block;
-        padding: 10px 10px 10px 0px;
-        /* line-height: 43px; */
-    }
+#footer3 ul {
+    margin: 0px;
+    padding: 0px
+}
 
-    .icons a {
+
+
+.copyright-info {
+    /* margin: 0px; */
+    display: inline-block;
+    padding-left: 10px;
+
+}
+
+.icons {
+    display: inline-block;
+    padding: 10px 10px 10px 0px;
+    /* line-height: 43px; */
+}
+
+.icons a {
+    fill: white;
+}
+
+.icons a:hover {
+    animation: ease-in-out 0.3s color-icon;
+    fill: #1EC0CA;
+
+}
+
+@keyframes color-icon {
+    from {
         fill: white;
     }
 
-    .icons a:hover {
-        animation: ease-in-out 0.3s color-icon;
+    to {
         fill: #1EC0CA;
+    }
+}
 
+
+.copyright-info2 {
+    width: 100%;
+    display: none;
+    /* padding-top: 0px; */
+    text-align: center;
+    /* border-top: black solid 1px; */
+}
+
+@media screen and (max-width:650px) {
+
+    .copyright-info {
+        display: none;
     }
 
-    @keyframes color-icon {
-        from {
-            fill: white;
-        }
-
-        to {
-            fill: #1EC0CA;
-        }
+    .footer-container br {
+        display: block;
     }
-
 
     .copyright-info2 {
-        width: 100%;
-        display: none;
-        /* padding-top: 0px; */
-        text-align: center;
-        /* border-top: black solid 1px; */
+        display: block;
+        color: lightgrey;
+        clear: both;
+        padding: 0px;
+        margin: 0px;
+        font-weight: lighter;
     }
 
-    @media screen and (max-width:650px) {
-
-        .copyright-info {
-            display: none;
-        }
-
-        .footer-container br {
-            display: block;
-        }
-
-        .copyright-info2 {
-            display: block;
-            color: lightgrey;
-            clear: both;
-            padding: 0px;
-            margin: 0px;
-            font-weight: lighter;
-        }
-
-        .footer-container {
-            padding-bottom: 5px;
-        }
-
-        .icons {
-            padding: 10px 10px 0px 0px;
-            /* line-height: 43px; */
-        }
-
+    .footer-container {
+        padding-bottom: 5px;
     }
 
-    @media screen and (max-width:500px) {
-        .footer {
-            flex-direction: column !important;
-        }
+    .icons {
+        padding: 10px 10px 0px 0px;
+        /* line-height: 43px; */
     }
+
+}
+
+@media screen and (max-width:500px) {
+    .footer {
+        flex-direction: column !important;
+    }
+}
 </style>
