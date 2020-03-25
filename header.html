@@ -40,6 +40,12 @@
 
                 dignissimos harum esse asperiores?
 
+
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt voluptate magni repudiandae ipsum aut
+                eaque. Voluptatum, commodi. Atque nemo quam, libero earum consequuntur minima adipisci reprehenderit
+                doloremque soluta exercitationem quaerat!Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptates a accusamus, dicta temporibus facere saepe, quaerat sit dignissimos explicabo reiciendis
+                possimus perferendis illo obcaecati perspiciatis aliquam! Sit in fugit modi!
             </div>
         </div>
     </div>
@@ -55,9 +61,7 @@
         visibility: hidden;
     }
 
-    html {
-        overflow: hidden;
-    }
+
 
     #cover {
         position: fixed;
@@ -190,6 +194,8 @@
             overflow-x: hidden;
 
         }
+
+
     }
 
     .animateplease {
@@ -250,13 +256,15 @@
             console.log("showing-navbar");
             // document.getElementById("navbar-extended").style.display = "block";
             document.getElementById("cover").style.display = "block";
-            // document.getElementById("navbar-container").style.display = "none";
+            document.getElementById("navbar-container").style.display = "none";
             document.getElementById('navbar-extended').classList.remove('animateplease2');
             document.getElementById('navbar-extended').classList.remove('tempnav');
 
             document.getElementById('navbar-extended').classList.add('animateplease');
 
             console.log("navbar-showed")
+            let x = document.getElementsByTagName("html");
+            for (let e of x) { e.style.overflow = "hidden"; }
 
         }
         else {
@@ -270,7 +278,9 @@
             console.log("navbar-hided");
             // document.getElementById("navbar-extended").style.display = "none";
             document.getElementById("cover").style.display = "none";
-            // document.getElementById("navbar-container").style.display = "block";
+            document.getElementById("navbar-container").style.display = "block";
+            let x = document.getElementsByTagName("html");
+            for (let e of x) { e.style.overflow = "auto"; }
 
 
         }
