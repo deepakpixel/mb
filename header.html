@@ -56,6 +56,10 @@
 </html>
 
 <style>
+    #navbar-extended::-webkit-scrollbar {
+        display: none;
+    }
+
     .tempnav {
         /* display: none; */
         visibility: hidden;
@@ -263,8 +267,8 @@
             document.getElementById('navbar-extended').classList.add('animateplease');
 
             console.log("navbar-showed")
-            let x = document.getElementsByTagName("html");
-            for (let e of x) { e.style.overflow = "hidden"; }
+            // let x = document.getElementsByTagName("html");
+            // for (let e of x) { e.style.overflow = "hidden"; }
 
         }
         else {
@@ -279,8 +283,8 @@
             // document.getElementById("navbar-extended").style.display = "none";
             document.getElementById("cover").style.display = "none";
             document.getElementById("navbar-container").style.display = "block";
-            let x = document.getElementsByTagName("html");
-            for (let e of x) { e.style.overflow = "auto"; }
+            // let x = document.getElementsByTagName("html");
+            // for (let e of x) { e.style.overflow = "auto"; }
 
 
         }
