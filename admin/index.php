@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <button>Update website (not restart)</button>
+    <button>Update version 2</button>
 </body>
 
 </html>
