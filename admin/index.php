@@ -10,7 +10,12 @@
 
 <body>
     <!-- <input type="text" name="command" id="command" placeholder="Command goes here"> -->
-    <button>Update</button>
+    <button onclick="update()">Update</button>
+    <script>
+    function update() {
+        window.location.href = "update.php";
+    }
+    </script>
 </body>
 
 </html>
