@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <input type="text" name="command" id="command" placeholder="Command goes here">
+    <!-- <input type="text" name="command" id="command" placeholder="Command goes here"> -->
     <button>Update</button>
 </body>
 

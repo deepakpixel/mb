@@ -1,19 +1,18 @@
 <?php
-    if(isset($_REQUEST['command'])){
-        $command=$_REQUEST['command'];
-        // execPrint($command);
-        exec($command, $result);
+    // if(isset($_REQUEST['command'])){
+    //     $command=$_REQUEST['command'];
+    //     // execPrint($command);
+    //     exec($command, $result);
     
         
-        foreach ($result as $line) {
-            print($line . "\n");
-        }
-    }
+    //     foreach ($result as $line) {
+    //         print($line . "\n");
+    //     }
+    // }
     
     $output = shell_exec('/var/www/html/microbird-website/admin/script.sh');
-    
-    // echo "<pre>$output</pre>";
-    echo $output;
+    echo "<pre>$output</pre>";
+    // echo $output;
 
 // function execPrint($command) {
 // $result = array();
