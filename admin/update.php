@@ -4,7 +4,7 @@
     $output = shell_exec('/var/www/html/microbird-website/admin/script.sh');
     
     // echo "<pre>$output</pre>";
-    echo $result;
+    echo $output;
 
 // function execPrint($command) {
 // $result = array();
