@@ -4,6 +4,7 @@
         // execPrint($command);
         exec($command, $result);
     
+        
         foreach ($result as $line) {
             print($line . "\n");
         }
