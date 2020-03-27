@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <button>Update version 2</button>
+    <input type="text" name="command" id="command" placeholder="Command goes here">
+    <button>Update</button>
 </body>
 
 </html>
