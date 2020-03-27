@@ -1,7 +1,8 @@
 <?php
     // $command=$_REQUEST['command'];
     // execPrint($command);
-    $output = shell_exec('/var/www/html/microbird-website/script.sh');
+    $output = shell_exec('/var/www/html/microbird-website/admin/script.sh');
+    
     // echo "<pre>$output</pre>";
     echo $result;
 
