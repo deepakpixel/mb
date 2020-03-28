@@ -1,3 +1,9 @@
+<?php
+session_start();
+if ((isset($_SESSION['isloggedin']))&& $_SESSION['isloggedin']==1) {
+header("Location: admin.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,13 +15,10 @@
 </head>
 
 <body>
-    <!-- <input type="text" name="command" id="command" placeholder="Command goes here"> -->
-    <button onclick="update()">Update</button>
-    <script>
-    function update() {
-        window.location.href = "update.php";
-    }
-    </script>
+    <form action="process-login.php" method="post">
+        <input type="password" name="password" id="admin-password">
+        <input type="submit" value="Submit">
+    </form>
 </body>
 
 </html>
