@@ -113,46 +113,7 @@ if($message=="default")
                 $headers.='X-Mailer: PHP/' . phpversion();
                 
 
-
-                // $url = 'https://api.sendgrid.com/v3/mail/send';
-                // $api_key = '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';
-
-                // $data='{"personalizations": [{"to": [{"email": "'.$email.'"}]}],"from": {"email": "hello@microbird.club","name":"Team Techchef"},"subject": "'.$subject.'",
-                // "content": [{"type": "text/html", "value": "'.$body.'"}]}';
-                // Initializes a new cURL session
-                // $curl = curl_init($url);
-                // // Set the CURLOPT_RETURNTRANSFER option to true
-                // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-                // // Set the CURLOPT_POST option to true for POST request
-                // curl_setopt($curl, CURLOPT_POST, true);
-                // // Set the request data as JSON using json_encode function
-                // curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-                // // Set custom headers for RapidAPI Auth and Content-Type header
-                // curl_setopt($curl, CURLOPT_HTTPHEADER, [
-                // 'Authorization: Bearer '.$api_key.'',
-                // 'Content-Type: application/json'
-                // ]);
-                // Execute cURL request with all previous settings
-                // $response = curl_exec($curl);
-                // Close cURL session
-                // curl_close($curl);
-                // echo $response;
-                // var_dump($response);
-                // var_dump($response,curl_error($curl),curl_getinfo($curl));
-
-
-
-
-
-                // curl --request POST \
-                //   --url https://api.sendgrid.com/v3/mail/send \
-                //   --header "Authorization: Bearer $SENDGRID_API_KEY" \
-                //   --header 'Content-Type: application/json' \
-                //   $data='{"personalizations": [{"to": [{"email": "test@example.com"}]}],"from": {"email": "test@example.com"},"subject": "Sending with SendGrid is Fun","content": [{"type": "text/plain", "value": "and easy to do anywhere, even with cURL"}]}';
-                
-                
-                
-                
+ 
                 if(mail($email, $subject, $body, $headers))
                 {
                     // $mail1+=1;
