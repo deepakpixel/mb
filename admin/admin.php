@@ -1,9 +1,17 @@
 <?php session_start();
-if(!isset($_SESSION['isloggedin']))
+if (!((isset($_SESSION['loggedin']))&& $_SESSION['loggedin']=="superadmin"))
 header("location: index.php") ?>
+<!DOCTYPE html>
 <html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Microbird</title>
+</head>
+
 <body>
+
     <div class=center><strong>ADMIN PANEL</strong>
         <span onclick="window.location.href='process-logout.php'"
             class="login-info">Logout[<?php echo $_SESSION['username'] ?>]</span>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ((isset($_SESSION['loggedin']))&& $_SESSION['loggedin']=="superadmin") {
+if ((isset($_SESSION['loggedin']))&& $_SESSION['loggedin']=="tc-admin") {
 header("Location: admin.php");
 }
 ?>
@@ -10,7 +10,7 @@ header("Location: admin.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Microbird</title>
+    <title>Admin | TechChef</title>
 
 </head>
 
