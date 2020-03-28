@@ -38,7 +38,7 @@ header("Location: admin.php");
         background-color: #2A3E5D;
         color: white;
         height: 100px;
-        padding: 2px 16px;
+        /* padding: 2px 16px; */
     }
 
     .wrapper-div {
@@ -55,6 +55,8 @@ header("Location: admin.php");
         display: table;
         width: 100%;
         height: 100vh;
+        padding: 0px;
+
     }
 
     .wrapper-div {
