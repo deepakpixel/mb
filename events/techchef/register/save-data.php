@@ -75,7 +75,7 @@ if($message=="default")
         curl_close($ch);
         $output=json_decode($output,true);
         if($output['result']=="invalid")
-        $message="invalidemail";
+        $message="emailbounce";
         else{    
             
             date_default_timezone_set('Asia/Kolkata');
