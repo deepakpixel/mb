@@ -110,7 +110,7 @@ if($message=="default")
  
                     if(mail($email, $subject, $body, $headers)){
                         // $mail1+=1;
-                        $sql = "UPDATE registrations SET mail1='1' WHERE id='$id'";
+                        $sql = "UPDATE registrations SET wcmail='1' WHERE id='$id'";
                         if($conn->query($sql)===TRUE)
                         $message="success";
                     }
