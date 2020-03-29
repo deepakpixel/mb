@@ -6,17 +6,15 @@ $message="default";
 
 $name=strtoupper(($_REQUEST["name"]));
 $name = preg_replace("/[^a-zA-Z0-9\s]/", "", $name);
-// $username = preg_replace("/[^a-zA-Z0-9]/", "", $name);
 
 $email=strtolower($_REQUEST["email"]);
+
 $phone=$_REQUEST["phone"];
 $phone = preg_replace("/[^0-9\s]/", "", $phone);
-// $college=$_REQUEST["college"];
+
 $college=strtoupper($_REQUEST["college"]);
 $college = preg_replace("/[^a-zA-Z0-9\s]/", "", $college);
 
-
-// $email = preg_replace('~[\\\\/#:*?"<>|]~', '', $email);
 
 // college
 if(!strlen($college))
@@ -80,12 +78,10 @@ if($message=="default")
         $message="invalidemail";
         else{    
             
-            // insert data into pending tablel
-            // $sql = "INSERT INTO pending (name, email, phone, college) VALUES ('$name', '$email','$phone', '$college')";
             date_default_timezone_set('Asia/Kolkata');
             $t=strtotime('now');
             $regtime=date("d/m/Y h:ia l",$t);
-            $last_id=mysqli_query($conn,"SELECT * FROM approved ORDER BY id DESC LIMIT 1");
+            $last_id=mysqli_query($conn,"SELECT * FROM registrations ORDER BY id DESC LIMIT 1");
             $last_id=mysqli_fetch_array($last_id);
             // starting id for first entry
             if($last_id==NULL)
@@ -94,9 +90,7 @@ if($message=="default")
                 $id=$last_id['id']+1;
             $username =strtolower(preg_replace("/[^a-zA-Z0-9]/", "", $name));
             $password="techchef@".$id;
-            // $issent=1;
-            // $issent=sendmail($email,$name,$username,$password);
-            $sql = "INSERT INTO approved (name,email,phone,college,username, password,regtime) VALUES('$name', '$email','$phone', '$college','$username', '$password','$regtime')";
+            $sql = "INSERT INTO registrations (name,email,phone,college,username, password,regtime,regfor) VALUES('$name', '$email','$phone', '$college','$username', '$password','$regtime','techchef2020')";
 
             if ($conn->query($sql) === TRUE) {
 
@@ -114,25 +108,17 @@ if($message=="default")
                 
 
  
-                if(mail($email, $subject, $body, $headers))
-                {
-                    // $mail1+=1;
-                    $sql = "UPDATE approved SET mail1='1' WHERE id='$id'";
-                    if($conn->query($sql)===TRUE)
-                    $message="success";
-                }
-                                $message="success";
+                    if(mail($email, $subject, $body, $headers)){
+                        // $mail1+=1;
+                        $sql = "UPDATE registrations SET mail1='1' WHERE id='$id'";
+                        if($conn->query($sql)===TRUE)
+                        $message="success";
+                    }
+                $message="success";
             } else {
                 $message="uploadfailed";
             }
         }
 }
-
-// send mail
-// $message="success";
 echo $message;
-// sleep(5);
-// $issent=sendmail($email,$name,$username,$password);
-
-
 ?>
