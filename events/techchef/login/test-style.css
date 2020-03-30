@@ -11,9 +11,12 @@ body{
 #time-details,#hello-user{
     display: inline-block;
 }
-.question-container{
-    display: none;
+input[type="radio"]:checked+.input-and-label{
+background-color: grey;
 }
+/* .question-container{
+    display: none;
+} */
 /* .previous-question:first-of-type,.next-question:last-of-type{
     background-color: red;
 } */

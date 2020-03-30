@@ -11,12 +11,10 @@ session_destroy();
 // var_dump($_SESSION);
 
 
-
-
-
-
-
-
+if(isset($_REQUEST['m']))
+$message=$_REQUEST['m'];
+else
+$message="none";
 
 // if request['message']=timeover ==>automatically submitted
 // if message=submitted :your test is submitted ==>show stats
@@ -33,6 +31,11 @@ session_destroy();
     <title>Test Summary</title>
 </head>
 <body>
+<?php if($message=="um"):?>
+    <div class="cheated">
+        Our cheating detection system told us that you were leaving test window. If that's not the case you can <a href="https://microbird.club/contact">contact us</a>.
+    </div>
+<?php endif; ?>
    Test Summary: for <?php echo $_SESSION['username'] ?>
    <button onclick="window.location.href='index.php'">OK</button>
 </body>

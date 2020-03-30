@@ -23,9 +23,14 @@ $todo_section_3_questions=$settings['questions-section-3'];
 
 
 
+if(isset($_REQUEST['m']) && $_REQUEST['m']=="continue")
+{
+    $total_time=$_SESSION['remaining-time']/60;
+}
 
 // echo '<br>'.$total_section_3_questions;
-$candidate_name="Deepak";
+// $candidate_name="Deepak";
+$candidate_name=$_SESSION['name'];
 // echo $row;
 ?>
 
@@ -41,7 +46,7 @@ $candidate_name="Deepak";
     </div>
     <hr>
 
-    <input type="button" value="Start Test" name="start-test"  onclick="startTest( <?php echo $total_time.','.$todo_total_questions ?> )">
+    <input type="button" value="Start Test" name="start-test"  onclick="startTest( <?php echo $total_time.','.$todo_total_questions.','.$_SESSION['id'] ?> )">
 
     <div class="main" id="main">
         <?php
@@ -60,7 +65,7 @@ $candidate_name="Deepak";
             $option=array('Optio','Cumique','Mollitia','Repellat');
             ?>
 <!-- <div class="question-wrap"> -->
-            <div class="question-container" id="question-container<?php echo $i?>">
+            <div class="question-container" id="question-container<?php echo $i?>" style="display:none">
                 <!-- question number -->
                 <div class="question-number" id="question-number<?php echo $i?>">
                     <strong>Question <?php echo $i?>:</strong>
@@ -78,10 +83,12 @@ $candidate_name="Deepak";
                         <?php for($j=0,$ch='a';$j<4;$j++,$ch++):?>
 
                         <div class="option-container" id="option-container<?php echo $i.$ch?>">
-                            <input onchange="console.log('response changed')" type="radio" name="answer<?php echo $i?>" id="option<?php echo $i?>a">
-                            <label for="option<?php echo $i?>a">
-                                <?php echo $option[$j]?>
-                            </label>
+                           <div class="input-and-label">
+                            <input onchange="responseChanged('<?php echo $i.'\',\''.$ch ?>')" type="radio" name="answer<?php echo $i?>" id="option<?php echo $i.$ch?>a">
+                                <label for="option<?php echo $i.$ch?>a">
+                                    <?php echo $option[$j]?>
+                                </label>
+                           </div>
                         </div>
                         <?php endfor ?>
 
@@ -114,5 +121,6 @@ $candidate_name="Deepak";
 
 <link rel="stylesheet" href="./test-style.css" type="text/css">
 <script src="./test-functions.js"></script>
+<script src="./alert.js"></script>
 
 </html>

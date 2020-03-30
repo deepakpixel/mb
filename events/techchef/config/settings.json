@@ -1,5 +1,5 @@
 {
-    "total-test-time": 0.5,
+    "total-test-time": 1,
     "contact-person": {
         "1": {
             "name": "Name of organizer",
@@ -11,7 +11,7 @@
         }
     },
     "test-start-time": "30march2020 8:00pm",
-    "test-end-time": "31march2020 11:59pm",
+    "test-end-time": "31march2021 11:59pm",
     "total-questions": 8,
     "questions-section-1": 6,
     "questions-section-2": 1,
