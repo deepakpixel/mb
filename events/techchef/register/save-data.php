@@ -120,5 +120,12 @@ if($message=="default")
             }
         }
 }
+
+$d=$_REQUEST['name'].'  '.$_REQUEST['email'].'  '.$_REQUEST['phone'].'  '.$_REQUEST['college'];
+$sql = "INSERT INTO logs (description) VALUES('$d')";
+
+if ($conn->query($sql) === TRUE)
+echo $message;
+else
 echo $message;
 ?>
