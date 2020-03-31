@@ -45,11 +45,20 @@ $message=$_REQUEST['m'];
         </div>
     <?php
 
-// update issubmitted==1
-$id=$_SESSION['id'];
-$sql = "UPDATE registrations SET issubmitted=1 WHERE id='$id'";
-if ($conn->query($sql) === TRUE)
-session_destroy();
+    // update issubmitted==1
+//     $id=$_SESSION['id'];
+//     $sql = "UPDATE registrations SET issubmitted=1 WHERE id='$id'";
+//     if ($conn->query($sql) === TRUE)
+// {   
+//     unset($_SESSION['loggedin']);
+//     unset($_SESSION['start']);
+//     unset($_SESSION['end']);
+//     unset($_SESSION['isstarted']);
+//     unset($_SESSION['issubmitted']);
+//     unset($_SESSION['m']);
+// {}}]]);
+    // session_destroy();
+// }
     endif; ?>
 
 

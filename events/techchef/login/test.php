@@ -1,6 +1,14 @@
 
+            <?php 
+            require_once "../../../resources/config/db.php";
+            session_start();
+            if (!((isset($_SESSION['loggedin'])) && $_SESSION['loggedin']=="tc-candidate"))
+            header("location: index.php");
+           ?>
 <html lang=en>
     <head><title>Test ongoing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 
@@ -9,11 +17,12 @@
 <script src="./test-functions.js"></script>
 
 
-            <?php require_once "../../../resources/config/db.php";
-            session_start();
-            if (!((isset($_SESSION['loggedin']))&& $_SESSION['loggedin']=="tc-candidate"))
-            header("location: index.php");
-
+            <?php
+//             $id=$_SESSION['id'];
+// $user=mysqli_query($conn,"SELECT * FROM registrations WHERE id='$id" );
+// $user=mysqli_fetch_array($user);
+// $_SESSION['isstarted']=$user['isstarted'];
+// $_sess
             $settings=file_get_contents("../config/settings.json");
             $settings= json_decode($settings,true); //converts json to array
 
@@ -27,6 +36,15 @@
 
 
             $total_time=$settings['total-test-time'];
+
+      if((isset($_SESSION['isstarted']) && $_SESSION['isstarted']==1))
+            {
+                $_SESSION['remaining-time']=$_SESSION['end']-time();
+                $total_time=$_SESSION['remaining-time']/60;
+            }
+
+
+
             $todo_total_questions=$settings['total-questions'];
             $todo_section_1_questions=$settings['questions-section-1'];
             $todo_section_2_questions=$settings['questions-section-2'];
@@ -34,17 +52,7 @@
 
 
 
-            if((isset($_REQUEST['m']) && $_REQUEST['m']=="continue")||(isset($_SESSION['isstarted']) && $_SESSION['isstarted']==1))
-            {
-                $_SESSION['remaining-time']=$_SESSION['end']-time();
-                $total_time=$_SESSION['remaining-time']/60;
-                // echo '<script>continueTest('.$total_time.')</script>';
-                ?>
-                <script>
-                    continueTest(<?php echo $total_time?>);
-                </script>
-                <?php
-            }
+           
 
 // echo '<br>'.$total_section_3_questions;
 // $candidate_name="Deepak";
@@ -58,10 +66,28 @@ $candidate_name=$_SESSION['name'];
         <div id="time-details">
             <span id="time-left"></span> </div>
     </div>
-    <hr>
+    <!-- <hr> -->
+    <div class="rules-container" id="rules-container">
+    <div class="rules-heading">INSTRUCTIONS</div>
+    <div class="rules">
+        1.please this hell of a rule so follow it.
+        <br>
+        2.Dont leave/close the test window after starting the test
+        <br>
+        3.Dont even try to play with my website
+        <br>
+        4.please this hell of a rule so follow it.
+        <br>
+        5.Dont leave/close the test window after starting the test
+        <br>
+        6.Dont even try to play with my website
+        <br>
+    </div>
 
-    <input type="button" value="Start Test" name="start-test"  onclick="startTest( <?php echo $total_time.','.$todo_total_questions.','.$_SESSION['id'] ?> );console.log('<?php echo 'Test Started'; $_SESSION['isstarted']=1;$_SESSION['end']=time()+$total_time*60?>')">
-
+    <div class="start-button-class">
+    <input id="start-test" type="button" value="Start Test" name="start-test"  onclick="window.location.href='start-test.php'">
+    </div>
+</div>
     <div class="main" id="main">
         <?php
         for($i=1;$i<=$todo_total_questions;$i++):
@@ -108,7 +134,7 @@ $candidate_name=$_SESSION['name'];
 
                     </div>
 
-
+<div class="emptydiv"></div>
                 </div>
                    <div class="controls"> 
                         <hr>
@@ -124,12 +150,29 @@ $candidate_name=$_SESSION['name'];
         <?php endfor ?>
     </div>
 <!-- </div> -->
-    <button onclick="timeOver()">END TEST</button>
+    <div class="end-test-class">
+        <div class="endbutton-wrap">
+        <button id="end-test" onclick="timeOver()">END TEST</button>
+        </div>
+    </div>
 
 </body>
 
 
+<?php
+ if((isset($_SESSION['isstarted']) && $_SESSION['isstarted']==1))
+ {
+     $_SESSION['remaining-time']=$_SESSION['end']-time();
+     $total_time=$_SESSION['remaining-time']/60;
+     ?>
+     <script>
+    continueTest( <?php echo $total_time.','.$todo_total_questions.','.$_SESSION['id'] ?> );
+     </script>
 
+     <?php
+ }
+ 
+?>
 
 
 

@@ -3,9 +3,9 @@ session_start();
 require_once "../../../resources/config/db.php";
 // check if already logged in
 if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'])=="tc-candidate")
-{
-    header("Location: test.php"); 
-    exit();
+{          
+            header("Location: test.php"); 
+            exit();
 }
 
 // $password="deepak";
@@ -49,6 +49,10 @@ else
     $_SESSION['id']=$user['id'];
     $_SESSION['end']=$user['end'];
     $_SESSION['start']=$user['start'];
+    $_SESSION['isstarted']=$user['isstarted'];
+    
+    $_SESSION['issubmitted']=$user['issubmitted'];
+
 
 
     // session should carry id to end test
@@ -56,6 +60,10 @@ else
    if($user['issubmitted']==1)
 {
     unset($_SESSION['loggedin']);
+    unset($_SESSION['isstarted']);
+    unset($_SESSION['issubmitted']);
+    unset($_SESSION['start']);
+    unset($_SESSION['end']);
     header("location: index.php?m=submitted");
     exit();
 
@@ -70,6 +78,8 @@ else
             // date_default_timezone_set('Asia/Kolkata');
 
             unset($_SESSION['loggedin']);
+            unset($_SESSION['isstarted']);
+            unset($_SESSION['issubmitted']);
             header("location: index.php?m=submitted");
             // echo $_SESSION['remaining-time'];
             // echo '<br>';
@@ -83,7 +93,7 @@ else
             exit();
         }
         else{
-            header("location: test.php?m=continue");
+            header("location: test.php");
             exit();
         }
     }
