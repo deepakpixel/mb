@@ -231,3 +231,26 @@ function responseChanged(qno, newans) {
 
     req.send();
 }
+
+function continueTest(total_time) {
+    startTimer(total_time);
+    // hide start button
+    // hide instructions
+    showQuestion(1);
+
+
+    var t = (Math.round(total_time * 10) / 10);
+    var m = Math.floor(t);
+    var s = Math.floor((t - m) * 60);
+    swal.fire({
+        title: "Test continued!",
+        text: "Time remaining: " + m + " Minutes " + s + " Seconds",
+        icon: "info",
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+        allowEnterKey: false,
+        focusConfirm: false,
+        confirmButtonText: "Continue"
+    });
+
+}

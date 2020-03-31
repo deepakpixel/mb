@@ -20,10 +20,10 @@ if(isset($_REQUEST['action']))
     }
 
     if($_REQUEST['action']=="start")
-    {   $time=strtotime('now');
-        $start=date('d/m/Y h:i:sa l',$time);
-        $time2=$time+($total_time*60);
-        $end=date('d/m/Y h:i:sa l',$time2);
+    {   $start=strtotime('now');
+        // $start=date('d-M-Y h:i:s',$time);
+        $end=$start+($total_time*60);
+        // $end=date('d-M-Y h:i:s',$time2);
         $sql = "UPDATE registrations SET isstarted=1 , start='$start' , end='$end' WHERE id='$id'";
             if ($conn->query($sql) === TRUE)
              echo "started";

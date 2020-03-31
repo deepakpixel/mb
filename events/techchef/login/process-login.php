@@ -11,6 +11,7 @@ if((isset($_SESSION['loggedin']) && $_SESSION['loggedin'])=="tc-candidate")
 // $password="deepak";
 date_default_timezone_set('Asia/Kolkata');
 $time=strtotime('now');
+$time=time();
 
 $settings=file_get_contents("../config/settings.json");
 $settings= json_decode($settings,true); //converts json to array
@@ -46,16 +47,39 @@ else
     $_SESSION['username']=$user['username'];
     $_SESSION['name']=$user['name'];
     $_SESSION['id']=$user['id'];
+    $_SESSION['end']=$user['end'];
+    $_SESSION['start']=$user['start'];
 
 
     // session should carry id to end test
+
+   if($user['issubmitted']==1)
+{
+    unset($_SESSION['loggedin']);
+    header("location: index.php?m=submitted");
+    exit();
+
+}
+// $_SESSION['remaining-time']=($user['end'])-$time;
+
   if($user['isstarted']==1)
     {  
         //  $t=strtotime('now');
-       $_SESSION['remaining-time']=(strtotime($user['end'])-$time);
+       $_SESSION['remaining-time']=($user['end'])-$time;
         if($_SESSION['remaining-time']<0){
-            session_destroy();
+            // date_default_timezone_set('Asia/Kolkata');
+
+            unset($_SESSION['loggedin']);
             header("location: index.php?m=submitted");
+            // echo $_SESSION['remaining-time'];
+            // echo '<br>';
+            // echo 'hell'.strtotime($user['end']);
+            // echo 'hell'.time();
+            
+            // echo strtotime('31march2020');;
+            // $exp= date('d-M-Y h:i:sa',time());
+            // echo strtotime($exp);
+            
             exit();
         }
         else{

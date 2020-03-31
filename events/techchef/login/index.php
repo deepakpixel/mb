@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once "../../../resources/config/db.php";
+
 // if test expired show test is over see 
 if ((isset($_SESSION['loggedin']))&& $_SESSION['loggedin']=="tc-candidate") {
 header("Location: test.php");
@@ -41,7 +43,14 @@ $message=$_REQUEST['m'];
         <div class="message">
             Your test is already submitted
         </div>
-    <?php endif; ?>
+    <?php
+
+// update issubmitted==1
+$id=$_SESSION['id'];
+$sql = "UPDATE registrations SET issubmitted=1 WHERE id='$id'";
+if ($conn->query($sql) === TRUE)
+session_destroy();
+    endif; ?>
 
 
 
