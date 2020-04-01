@@ -10,67 +10,95 @@ $message="none";
 if(isset($_REQUEST['m']))
 $message=$_REQUEST['m'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | TechChef</title>
+	<title>Login | TechChef</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="alert.js"></script>
 </head>
 
 <body>
-    <?php if($message=="expired") : ?>
-        <div class="message">
-            Sorry the test is over
-        </div>
-    <?php endif; ?>
 
-    <?php if($message=="early") : ?>
-        <div class="message">
-            Looks like you came too soon. Test hasn't started yet
-        </div>
-    <?php endif; ?>
+	<div class="limiter">
+		<div class="container-login100" style="background-color: black;">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method="POST" action="process-login.php">
+					<span class="login100-form-logo" style="background-color: transparent;">
+						<i class="zmdi zmdi-landscape">TechChef</i>
+					</span>
 
-    <?php if($message=="incorrect") : ?>
-        <div class="message">
-            Please re-recheck the login details carefully
-        </div>
-    <?php endif; ?>
+					<span class="login100-form-title p-b-34 p-t-27">
+					Log in
+					<!-- <span>Round-1</span> -->
+					</span>
+					
 
-    <?php if($message=="submitted") : ?>
-        <div class="message">
-            Your test is already submitted
-        </div>
-    <?php
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						<input class="input100" type="text" name="username" placeholder="Username">
+						<span class="focus-input100" data-placeholder=""></span>
+					</div>
 
-    // update issubmitted==1
-//     $id=$_SESSION['id'];
-//     $sql = "UPDATE registrations SET issubmitted=1 WHERE id='$id'";
-//     if ($conn->query($sql) === TRUE)
-// {   
-//     unset($_SESSION['loggedin']);
-//     unset($_SESSION['start']);
-//     unset($_SESSION['end']);
-//     unset($_SESSION['isstarted']);
-//     unset($_SESSION['issubmitted']);
-//     unset($_SESSION['m']);
-// {}}]]);
-    // session_destroy();
-// }
-    endif; ?>
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100" data-placeholder=""></span>
+					</div>
+
+					<div class="contact100-form-checkbox">
+						<!-- <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label> -->
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">
+							Login
+						</button>
 
 
+					</div>
 
-<form action="process-login.php" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" value="Login">
-</form>
-
-
-
+					<div class="text-center p-t-90">
+						<a class="txt1">
+							Forgot Password? Contact us
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
+
+
+
+
+<?php if($message=="expired") : ?>
+       <script>
+		   swal.fire("Test Expired","Test was expired at 11:59am on April 10, 2020","info");
+	   </script>
+    <?php endif; ?>
+
+    <?php if($message=="early") : ?>
+        <script>
+		   swal.fire("Test not started","Test will start at 11:00am on April 9, 2020","info");
+	   </script>
+    <?php endif; ?>
+
+    <?php if($message=="incorrect") : ?>
+        <script>
+		   swal.fire("Incorrect details","Please check your details or contact us","warning");
+	   </script>
+    <?php endif; ?>
+
+    <?php if($message=="submitted") : ?>
+        <script>
+		   swal.fire("Test Submitted","Your test is already submitted","info");
+	   </script>
+    <?php endif; ?>

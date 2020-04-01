@@ -15,6 +15,14 @@ $phone = preg_replace("/[^0-9\s]/", "", $phone);
 $college=strtoupper($_REQUEST["college"]);
 $college = preg_replace("/[^a-zA-Z0-9\s]/", "", $college);
 
+$course=strtoupper($_REQUEST["course"]);
+$course = preg_replace("/[^a-zA-Z0-9\s]/", "", $course);
+
+
+
+// course
+if(!strlen($course))
+$message="nocourse";
 
 // college
 if(!strlen($college))
@@ -90,6 +98,7 @@ if($message=="default")
                 $id=$last_id['id']+1;
             $username =strtolower(preg_replace("/[^a-zA-Z0-9]/", "", $name));
             $password="techchef@".$id;
+            $college=$college.' Course: '.$course;
             $sql = "INSERT INTO registrations (name,email,phone,college,username, password,regtime,regfor) VALUES('$name', '$email','$phone', '$college','$username', '$password','$regtime','techchef2020')";
 
             if ($conn->query($sql) === TRUE) {

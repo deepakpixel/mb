@@ -15,8 +15,10 @@ function saveData() {
     var email = document.getElementById("email").value;
     var phone = document.getElementById("phone").value;
     var college = document.getElementById("college").value;
+    var course = document.getElementById("course").value;
+
     var req = new XMLHttpRequest();
-    var url = "save-data.php?name=" + name + "&email=" + email + "&phone=" + phone + "&college=" + college;
+    var url = "save-data.php?name=" + name + "&email=" + email + "&phone=" + phone + "&college=" + college + "&course=" + course;
     req.open("GET", url, true);
     req.onload = function () {
 
@@ -78,6 +80,17 @@ function saveData() {
                 'warning'
             );
         }
+
+        else if (this.responseText == "nocourse") {
+            sleep(600);
+            Swal.fire(
+                'Enter course details!',
+                'Please enter your course and year.',
+                'warning'
+            );
+        }
+
+
         else if (this.responseText == "success") {
             Swal.fire(
                 'Thanks for registering!',
