@@ -1,11 +1,13 @@
 <?php session_start();
-if (!((isset($_SESSION['loggedin']))&& $_SESSION['loggedin']=="tc-admin"))
+if (!((isset($_SESSION['adminloggedin']))&& $_SESSION['adminloggedin']=="tc-admin"))
 header("location: index.php") ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | Techchef</title>
@@ -20,6 +22,15 @@ header("location: index.php") ?>
     <!-- ADMIN PANEL -->
     <!-- Show registered candidates with techchef -->
 
+    <button class="btn btn-info" onclick="window.location.href='registrations.php'">Show registered users</button>
+    
+    <button class="btn btn-info" onclick="window.location.href='upload-questions.php'">Submit Questions</button>
+
+    <button class="btn btn-info" onclick="window.location.href='view-questions.php'">View Questions</button>
+
+
+
+
     <!-- show advanced options -->
     <!--Delete event data-->
 
@@ -30,13 +41,13 @@ header("location: index.php") ?>
 <style>
 html,
 body {
-    margin: 0px;
+    margin: 0px 5%;
     padding: 0px;
 }
 
 .login-info {
-    position: absolute;
-    /* float: right; */
+    /* position: absolute; */
+    float: right;
     right: 0px;
     padding-right: 10px;
     cursor: pointer;
@@ -51,4 +62,9 @@ body {
 
     /* margin: 0px; */
 }
+button{
+    width:100%;
+    margin-bottom:15px;
+}
+
 </style>

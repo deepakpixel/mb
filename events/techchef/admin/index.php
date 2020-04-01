@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ((isset($_SESSION['loggedin']))&& $_SESSION['loggedin']=="tc-admin") {
+if ((isset($_SESSION['adminloggedin']))&& $_SESSION['adminloggedin']=="tc-admin") {
 header("Location: admin.php");
 }
 ?>
@@ -9,6 +9,7 @@ header("Location: admin.php");
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/cosmo/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | TechChef</title>
 
@@ -41,9 +42,9 @@ header("Location: admin.php");
         /* padding: 2px 16px; */
     }
 
-    .wrapper-div {
+    /* .wrapper-div {
         vertical-align: middle
-    }
+    } */
 
     .button {
         background: #e8e8e8;
@@ -60,8 +61,9 @@ header("Location: admin.php");
     }
 
     .wrapper-div {
-        display: table-cell;
-        vertical-align: middle;
+        /* display: table-cell;
+        vertical-align: middle; */
+        padding-top:50px;
         text-align: center;
     }
     </style>

@@ -52,7 +52,8 @@ else
     $_SESSION['isstarted']=$user['isstarted'];
     
     $_SESSION['issubmitted']=$user['issubmitted'];
-
+    $r=$user['responses'][0];
+    $_SESSION['set-number']=$r;
 
 
     // session should carry id to end test

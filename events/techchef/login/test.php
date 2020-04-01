@@ -18,7 +18,7 @@
 
 
             <?php
-//             $id=$_SESSION['id'];
+// $id=$_SESSION['id'];
 // $user=mysqli_query($conn,"SELECT * FROM registrations WHERE id='$id" );
 // $user=mysqli_fetch_array($user);
 // $_SESSION['isstarted']=$user['isstarted'];
@@ -27,12 +27,12 @@
             $settings= json_decode($settings,true); //converts json to array
 
 
-            $section1=mysqli_query($conn,"SELECT * FROM questions WHERE section=1");
-            $section2=mysqli_query($conn,"SELECT * FROM questions WHERE section=2");
-            $section3=mysqli_query($conn,"SELECT * FROM questions WHERE section=3");
-            $total_section_1_questions=mysqli_num_rows($section1);
-            $total_section_2_questions=mysqli_num_rows($section2);
-            $total_section_3_questions=mysqli_num_rows($section3);
+            // $section1=mysqli_query($conn,"SELECT * FROM questions WHERE section=1");
+            // $section2=mysqli_query($conn,"SELECT * FROM questions WHERE section=2");
+            // $section3=mysqli_query($conn,"SELECT * FROM questions WHERE section=3");
+            // $total_section_1_questions=mysqli_num_rows($section1);
+            // $total_section_2_questions=mysqli_num_rows($section2);
+            // $total_section_3_questions=mysqli_num_rows($section3);
 
 
             $total_time=$settings['total-test-time'];
@@ -46,9 +46,9 @@
 
 
             $todo_total_questions=$settings['total-questions'];
-            $todo_section_1_questions=$settings['questions-section-1'];
-            $todo_section_2_questions=$settings['questions-section-2'];
-            $todo_section_3_questions=$settings['questions-section-3'];
+            // $todo_section_1_questions=$settings['questions-section-1'];
+            // $todo_section_2_questions=$settings['questions-section-2'];
+            // $todo_section_3_questions=$settings['questions-section-3'];
 
 
 
@@ -92,17 +92,29 @@ $candidate_name=$_SESSION['name'];
         <?php
         for($i=1;$i<=$todo_total_questions;$i++):
 
+$set_number=$_SESSION['set-number'];
+$qid=$settings['set'.$set_number]['q'.$i.'-id'];
+// echo "qid=".$qid;
+$qna=mysqli_query($conn,"SELECT * FROM questions WHERE qno='$qid'" );
+$qna=mysqli_fetch_array($qna);
+// var_dump($qna);
             // choose a question and 4 ooptions from databse
-            $question=nl2br(htmlspecialchars('What will be the output of following program?
-                                            #include<stdio.h>
-                                            void main()
-                                            {
-                                                printf("includehelp.com\rOK\n");
-                                                printf("includehelp.com\b\b\bOk\n");
-                                            }'));
+$question=nl2br(htmlspecialchars($qna['question']));
+// echo $question;
+
+            // $question=nl2br(htmlspecialchars('What will be the output of following program?
+            //                                 #include<stdio.h>
+            //                                 void main()
+            //                                 {
+            //                                     printf("includehelp.com\rOK\n");
+            //                                     printf("includehelp.com\b\b\bOk\n");
+            //                                 }'));
             // $question=nl2br(htmlspecialchars("<sometext
             // >"));
-            $option=array('Optio','Cumique','Mollitia','Repellat');
+            // $option=array('Optio','Cumique','Mollitia','Repellat');
+
+$option=array($qna['optiona'],$qna['optionb'],$qna['optionc'],$qna['optiond']);
+
             ?>
 <!-- <div class="question-wrap"> -->
             <div class="question-container" id="question-container<?php echo $i?>" style="display:none">
