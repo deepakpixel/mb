@@ -70,17 +70,17 @@ $candidate_name=$_SESSION['name'];
     <div class="rules-container" id="rules-container">
     <div class="rules-heading">INSTRUCTIONS</div>
     <div class="rules">
-        1.please this hell of a rule so follow it.
+        1. These rules are not final yet
         <br>
-        2.Dont leave/close the test window after starting the test
+        2. Dont leave/close the test window after starting the test
         <br>
-        3.Dont even try to play with my website
+        3. Dont even try to play with my website
         <br>
-        4.please this hell of a rule so follow it.
+        4. Rules will be updates soom
         <br>
-        5.Dont leave/close the test window after starting the test
+        5. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
         <br>
-        6.Dont even try to play with my website
+        6. Lorem ipsum dolor, sit amet consectetur adipisicing.
         <br>
     </div>
 
