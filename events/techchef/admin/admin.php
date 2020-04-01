@@ -17,7 +17,7 @@ header("location: index.php") ?>
 
     <div class=center><strong>ADMIN PANEL (TECHCHEF)</strong>
         <span onclick="window.location.href='process-logout.php'"
-            class="login-info">Logout[<?php echo $_SESSION['username'] ?>]</span>
+            class="login-info">Logout</span>
     </div>
     <!-- ADMIN PANEL -->
     <!-- Show registered candidates with techchef -->
