@@ -21,7 +21,7 @@ header("Location: admin.php");
         <div class="wrapper-div">
             <form action="process-login.php" method="post">
                 <input type="password" name="password" placeholder="Enter password">
-                <button type="button" class="button"> Submit </button>
+                <input type="submit" class="button" value="Submit">
             </form>
         </div>
 
