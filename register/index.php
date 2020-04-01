@@ -1,3 +1,3 @@
 <?php 
-header('location: ../events/techchef/register');
+header('location: ../events/techchef/register/');
 ?>
