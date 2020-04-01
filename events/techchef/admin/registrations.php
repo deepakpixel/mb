@@ -31,6 +31,7 @@ require_once "../../../resources/config/db.php";
             <td>StartTime</td>
             <td>Started</td>
             <td>Responses</td>
+            <td>Comment</td>
         </tr>
     
 
@@ -51,7 +52,8 @@ require_once "../../../resources/config/db.php";
             <td>'.$user['starttime'].'</td>
             <td>'.$user['isstarted'].'</td>
             <td>'.$user['responses'].'</td>
-            
+            <td>'.$user['comment'].'</td>
+
             </tr>';
 
         }
