@@ -26,16 +26,13 @@ echo '<div class="alert alert-info">Total Questions:'.$number.'</div>';
 
 while($row=mysqli_fetch_array($questions))
 {$filtered_question=nl2br(htmlspecialchars($row['question']));
-echo '
-    <div class="qno">QNo:'.$row['qno'].'</div>
-    <div class="question">'.$filtered_question.'</div>
+echo '<div class="qno">QNo:'.$row['qno'].'</div>
+    <div class="question"> '.$filtered_question.'</div>
     <div class="option">a) '.$row['optiona'].'</div>
     <div class="option">b) '.$row['optionb'].'</div>
     <div class="option">c) '.$row['optionc'].'</div>
     <div class="option">d) '.$row['optiond'].'</div>
-    <div class="answer alert alert-success">Ans '.$row['answer'].'</div>
-
-    ';
+    <div class="answer alert alert-success">Ans '.$row['answer'].'</div>';
 
 // if($user==NULL)
 // $user=0;
