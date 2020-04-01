@@ -3,8 +3,8 @@
             $settings= json_decode($settings,true); //converts json to array
 
 
-            $settings["test-start-time"]="now-10minuets";
-            $settings['test-end-time']="now-5minutes";
+            $settings["test-start-time"]="now+10minutes";
+            $settings['test-end-time']="now+1000minutes";
             if(time()>strtotime($settings['test-start-time'])&&time()<strtotime($settings['test-end-time']))
             {
                 header("location: ../events/techchef/login");
