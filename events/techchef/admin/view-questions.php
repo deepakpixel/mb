@@ -27,8 +27,8 @@ echo '<div class="alert alert-info">Total Questions:'.$number.'</div>';
 while($row=mysqli_fetch_array($questions))
 {$filtered_question=nl2br(htmlspecialchars($row['question']));
 echo '
-    <div class="qno">QNo:'.$filtered_question.'</div>
-    <div class="question">'.$row['question'].'</div>
+    <div class="qno">QNo:'.$row['qno'].'</div>
+    <div class="question">'.$filtered_question.'</div>
     <div class="option">a) '.$row['optiona'].'</div>
     <div class="option">b) '.$row['optionb'].'</div>
     <div class="option">c) '.$row['optionc'].'</div>
