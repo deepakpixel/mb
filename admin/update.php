@@ -1,4 +1,6 @@
-<?php
+<?php session_start();
+if (!((isset($_SESSION['loggedin']))&& $_SESSION['loggedin']=="superadmin"))
+header("location: index.php");
     // if(isset($_REQUEST['command'])){
     //     $command=$_REQUEST['command'];
     //     // execPrint($command);
