@@ -28,12 +28,12 @@ $message=$_REQUEST['m'];
 		<div class="container-login100" style="background-color: black;">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST" action="process-login.php">
-					<span class="login100-form-logo" style="background-color: transparent;">
-						<i class="zmdi zmdi-landscape">TechChef</i>
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
-					Log in
+					Login | TechChef
 					<!-- <span>Round-1</span> -->
 					</span>
 					

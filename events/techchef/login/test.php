@@ -13,6 +13,7 @@
 
 
 <body><script src="./alert.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/litera/bootstrap.min.css">
 <link rel="stylesheet" href="./test-style.css" type="text/css">
 <script src="./test-functions.js"></script>
 
@@ -62,30 +63,46 @@ $candidate_name=$_SESSION['name'];
 
 
     <div class="header">
-        <div id="hello-user">Hello, <?php echo $candidate_name?></div>
+        <div id="hello-user">Hello <?php echo $candidate_name?></div>
         <div id="time-details">
             <span id="time-left"></span> </div>
     </div>
     <!-- <hr> -->
     <div class="rules-container" id="rules-container">
+    <div class="readme" style="font-size:15px;">Please go through the instructions before starting test.</div>
     <div class="rules-heading">INSTRUCTIONS</div>
     <div class="rules">
-        1. These rules are not final yet
+        <div class="rule-wrap">
+            <strong class="rule-point">1. </strong> <span class="rule-line">This test is Round-1 of TechChef. Round-2 details will be sent to you after this round.</span>
+        </div>
         <br>
-        2. Dont leave/close the test window after starting the test
+        <div class="rule-wrap">
+            <strong class="rule-point">2. </strong> <span class="rule-line">Test cannot be paused, once started. So make sure you are not interupted by anything else while taking test.</span>
+        </div>
         <br>
-        3. Dont even try to play with my website
+       <div class="rule-wrap">
+           <strong class="rule-point">3. </strong> <span class="rule-line">Don't leave the test window after starting the test. Doing so might lead to disqualification.</span>
+        </div>
         <br>
-        4. Rules will be updates soom
+        <div class="rule-wrap">
+            <strong class="rule-point">4. </strong> <span class="rule-line">Multiple submissions from duplicate account may lead to disqualification.</span>
+        </div>
         <br>
-        5. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        <div class="rule-wrap">
+            <strong class="rule-point">5. </strong> <span class="rule-line">Decision of judges will be final.</span>
+        </div>
         <br>
-        6. Lorem ipsum dolor, sit amet consectetur adipisicing.
+        <div class="rule-wrap">
+           <strong class="rule-point">6. </strong> <span class="rule-line">We will not be responsible for any issues caused due to slow internet connection.</span>
+        </div>
         <br>
+        <div class="rule-wrap">
+        <strong class="rule-point all-the-best">&nbsp;&nbsp; All the best!!</strong>
+        </div>
     </div>
 
     <div class="start-button-class">
-    <input id="start-test" type="button" value="Start Test" name="start-test"  onclick="window.location.href='start-test.php'">
+    <input id="start-test" class="btn btn-primary" type="button" value="Start Test" name="start-test"  onclick="window.location.href='start-test.php'">
     </div>
 </div>
     <div class="main" id="main">
@@ -162,7 +179,7 @@ $option=array($qna['optiona'],$qna['optionb'],$qna['optionc'],$qna['optiond']);
         <?php endfor ?>
     </div>
 <!-- </div> -->
-    <div class="end-test-class">
+    <div class="end-test-class" id="end-button-wrap" style="display:none">
         <div class="endbutton-wrap">
         <button id="end-test" onclick="timeOver()">END TEST</button>
         </div>

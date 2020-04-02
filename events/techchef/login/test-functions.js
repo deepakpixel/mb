@@ -6,6 +6,8 @@ var id;
 var submit_message = "Thanks for taking the test";
 var submit_title = "Test submitted!"
 var cheated = 0;
+var option_bg_color = "#457094"; //non selscted
+var option_bg_color_selected = "#093555";
 
 function startTest(total_time, q_max, u) {
 
@@ -238,12 +240,12 @@ function responseChanged(qno, newans) {
     // console.log(qno);
     // alert("answer changed");
 
-    document.getElementById(`option-container${qno + 'a'}`).style.backgroundColor = "white";
-    document.getElementById(`option-container${qno + 'b'}`).style.backgroundColor = "white";
-    document.getElementById(`option-container${qno + 'c'}`).style.backgroundColor = "white";
-    document.getElementById(`option-container${qno + 'd'}`).style.backgroundColor = "white";
+    document.getElementById(`option-container${qno + 'a'}`).style.backgroundColor = option_bg_color;
+    document.getElementById(`option-container${qno + 'b'}`).style.backgroundColor = option_bg_color;
+    document.getElementById(`option-container${qno + 'c'}`).style.backgroundColor = option_bg_color;
+    document.getElementById(`option-container${qno + 'd'}`).style.backgroundColor = option_bg_color;
 
-    document.getElementById(`option-container${qno + newans}`).style.backgroundColor = "grey";
+    document.getElementById(`option-container${qno + newans}`).style.backgroundColor = option_bg_color_selected;
 
     var req = new XMLHttpRequest();
     var url = "test-process.php?id=" + id + "&qno=" + qno + "&newans=" + newans;
@@ -267,6 +269,7 @@ function continueTest(total_time, q_max, u) {
 
 
     document.getElementById("rules-container").style.display = "none";
+    document.getElementById("end-button-wrap").style.display = "block";
 
 
     id = u;
