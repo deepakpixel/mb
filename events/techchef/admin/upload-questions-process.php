@@ -38,6 +38,13 @@ if(isset($_REQUEST['submit']))
     $optionc=$_REQUEST['optionc'];
     $optiond=$_REQUEST['optiond'];
     $ans=$_REQUEST['ans'];
+    $question=(str_replace("'","''",$question));
+    $optiona=(str_replace("'","''",$optiona));
+    $optionb=(str_replace("'","''",$optionb));
+    $optionc=(str_replace("'","''",$optionc));
+    $optiond=(str_replace("'","''",$optiond));
+    $ans=(str_replace("'","''",$ans));
+
 
     if(strlen($question))
         if(strlen($optiona))  
@@ -51,7 +58,7 @@ if(isset($_REQUEST['submit']))
                             echo "Question-Submitted";
                         }
                         else{
-                            echo "Unable to upload question";
+                            echo("Error description: " . $conn->error);
                         }
                     }
     else
