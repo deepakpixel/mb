@@ -109,8 +109,11 @@ background-color: white;;
     transform: translate(-50%, 0);
     bottom:0px;
 }
-.question-number,.question-answer{
+.question-answer{
     padding:20px;
+}
+.question-number{
+ padding-left:20px;
 }
 .question-container{
     padding-bottom:150px;
