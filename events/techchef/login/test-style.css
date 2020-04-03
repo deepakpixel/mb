@@ -111,9 +111,11 @@ background-color: white;;
 }
 .question-answer{
     padding:20px;
+    padding-top:10px;
 }
 .question-number{
  padding-left:20px;
+ padding-top:10px;
 }
 .question-container{
     padding-bottom:150px;
