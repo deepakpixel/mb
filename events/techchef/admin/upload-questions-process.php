@@ -40,10 +40,11 @@ if(isset($_REQUEST['submit']))
     $ans=$_REQUEST['ans'];
 
     if(strlen($question))
-        if(strlen($name))  
-            if(strlen($name))
-                if(strlen($name))
-                    if(strlen($name))          
+        if(strlen($optiona))  
+            if(strlen($optionb))
+                if(strlen($optionc))
+                    if(strlen($optiond))   
+                        if(strlen($ans))         
                     {    $sql = "INSERT INTO questions (question,optiona,optionb,optionc,optiond,answer) VALUES('$question','$optiona','$optionb','$optionc','$optiond','$ans')";
                         if ($conn->query($sql) === TRUE)
                         {
