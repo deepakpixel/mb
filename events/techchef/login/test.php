@@ -69,7 +69,7 @@ $candidate_name=$_SESSION['name'];
     </div>
     <!-- <hr> -->
     <div class="rules-container" id="rules-container">
-    <div class="readme" style="font-size:15px;">Please go through the instructions before starting test.</div>
+    <div class="readme" style="font-size:15px;">Please read instructions before starting test.</div>
     <div class="rules-heading">INSTRUCTIONS</div>
     <div class="rules">
         <div class="rule-wrap">
