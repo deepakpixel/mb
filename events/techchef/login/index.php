@@ -56,7 +56,7 @@ $message=$_REQUEST['m'];
 							
 
                             <div class="input-group" id="last-group">
-                                <input class="input--style-3" type="text" placeholder="Password" name="password"
+                                <input class="input--style-3" type="password" placeholder="Password" name="password"
                                     id="course">
                             </div>
                             <div id="button-div">
