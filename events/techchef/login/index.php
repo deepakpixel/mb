@@ -10,6 +10,97 @@ $message="none";
 if(isset($_REQUEST['m']))
 $message=$_REQUEST['m'];
 ?>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login | TechChef</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="alert.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-wrapper bg-gra-01 p-t-100 p-b-100 font-poppins">
+            <div class="wrapper wrapper--w780">
+                <div class="card card-3">
+                    <div class="card-heading"></div>
+                    <div class="card-body">
+                        <h2 class="title">Login | Techchef</h2>
+                        <div>
+                           <form action="process-login.php" method="post">
+						   <div class="input-group">
+                                <input class="input--style-3" type="text" placeholder="Username" name="username" id="name">
+							</div>
+							
+                            <!-- <div class="input-group">
+                                <input class="input--style-3" type="email" placeholder="Email" name="email" id="email">
+                            </div>
+                            <div class="input-group">
+                                <input class="input--style-3" type="text" placeholder="Phone" name="phone" id="phone"
+                                    maxlength="10">
+                            </div>
+
+                            <div class="input-group">
+                                <input class="input--style-3" type="text" placeholder="College Name" name="college"
+                                    id="college">
+							</div> -->
+							
+
+							
+
+                            <div class="input-group" id="last-group">
+                                <input class="input--style-3" type="text" placeholder="Password" name="password"
+                                    id="course">
+                            </div>
+                            <div id="button-div">
+                                <!-- <p class="p-t-10" id="message">Here comes the text</p> -->
+                                <button type="submit" class="btn btn--pill btn--green">Submit</button>
+
+                            </div>
+						   </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +125,7 @@ $message=$_REQUEST['m'];
 
 					<span class="login100-form-title p-b-34 p-t-27">
 					Login | TechChef
-					<!-- <span>Round-1</span> -->
+					<span>Round-1</span>
 					</span>
 					
 
@@ -48,12 +139,7 @@ $message=$_REQUEST['m'];
 						<span class="focus-input100" data-placeholder=""></span>
 					</div>
 
-					<div class="contact100-form-checkbox">
-						<!-- <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label> -->
-					</div>
+	
 
 					<div class="container-login100-form-btn">
 						<button type="submit" class="login100-form-btn">
@@ -74,7 +160,7 @@ $message=$_REQUEST['m'];
 	</div>
 </body>
 
-</html>
+</html> -->
 
 
 
