@@ -19,7 +19,7 @@ header("Location: admin.php");
 
 require_once "../../../resources/config/db.php";
 
-$questions=mysqli_query($conn,"SELECT * FROM questions" );
+$questions=mysqli_query($conn,"SELECT * FROM question2" );
 $number=mysqli_num_rows($questions);
 
 echo '<div class="alert alert-info">Total Questions:'.$number.'</div>';
