@@ -1,4 +1,5 @@
 <?php
+require_once "../../../resources/config/db.php";
 
 session_start();
 if (!((isset($_SESSION['adminloggedin']))&& $_SESSION['adminloggedin']=="tc-admin")) {
@@ -25,7 +26,9 @@ header("location: upload-questions.php");
     
 
 <?php
-require_once "../../../resources/config/db.php";
+
+
+
 
 if(isset($_REQUEST['submit']))
 {
@@ -36,15 +39,22 @@ if(isset($_REQUEST['submit']))
     $optiond=$_REQUEST['optiond'];
     $ans=$_REQUEST['ans'];
 
-    $sql = "INSERT INTO questions (question,optiona,optionb,optionc,optiond,answer) VALUES('$question','$optiona','$optionb','$optionc','$optiond','$ans')";
-    if ($conn->query($sql) === TRUE)
-    {
-        echo "Question-Submitted";
-    }
-    else{
-        echo "error while submitting the question";
-    }
-
+    if(strlen($question))
+        if(strlen($name))  
+            if(strlen($name))
+                if(strlen($name))
+                    if(strlen($name))          
+                    {    $sql = "INSERT INTO questions (question,optiona,optionb,optionc,optiond,answer) VALUES('$question','$optiona','$optionb','$optionc','$optiond','$ans')";
+                        if ($conn->query($sql) === TRUE)
+                        {
+                            echo "Question-Submitted";
+                        }
+                        else{
+                            echo "Unable to upload question";
+                        }
+                    }
+    else
+    echo "One or more fields are empty";
 }
 
 
