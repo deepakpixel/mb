@@ -185,6 +185,14 @@ $option=array($qna['optiona'],$qna['optionb'],$qna['optionc'],$qna['optiond']);
         </div>
     </div>
 
+
+
+<!-- hidden element dsjfdklsjfklsdjkfldjs -->
+<input type="text" id="fakeelement" hidden>
+
+
+
+
 </body>
 
 
@@ -208,3 +216,11 @@ $option=array($qna['optiona'],$qna['optionb'],$qna['optionc'],$qna['optiond']);
 
 
 </html>
+
+
+<script>
+document.getElementById("fakeelement").focus();
+</script>
+
+
+

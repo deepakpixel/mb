@@ -71,17 +71,8 @@ $message=$_REQUEST['m'];
             </div>
         </div>
     </div>
-
-
 </body>
-
 </html>
-
-
-
-
-
-
 
 
 
