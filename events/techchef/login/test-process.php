@@ -37,8 +37,11 @@ if(isset($_REQUEST['action']))
     {   
         // mark cheated
         // echo "cheated";
-
-        $sql = "UPDATE registrations SET issubmitted=1,comment='suspicious' WHERE id='$id'";
+        $endtime=date('d/m/y h:i:s a',time());
+        $temp=mysqli_query($conn,"SELECT * FROM registrations WHERE id='$id'" );
+        $temp=mysqli_fetch_array($temp);
+        $timetaken=(time()-$temp['start'])/60;
+        $sql = "UPDATE registrations SET issubmitted=1,comment='suspicious',endtime='$endtime',timetaken='$timetaken' WHERE id='$id'";
         if ($conn->query($sql) === TRUE)
         {
             echo "cheated";
@@ -61,7 +64,11 @@ if(isset($_REQUEST['action']))
 
     if($_REQUEST['action']=="end")
     {
-        $sql = "UPDATE registrations SET issubmitted=1 WHERE id='$id'";
+        $endtime=date('d/m/y h:i:s a',time());
+        $temp=mysqli_query($conn,"SELECT * FROM registrations WHERE id='$id'" );
+        $temp=mysqli_fetch_array($temp);
+        $timetaken=(time()-$temp['start'])/60;
+        $sql = "UPDATE registrations SET issubmitted=1,endtime='$endtime',timetaken='$timetaken' WHERE id='$id'";
         if ($conn->query($sql) === TRUE)
         {
             echo "submitted";
