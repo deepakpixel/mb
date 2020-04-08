@@ -22,7 +22,7 @@ while($user=mysqli_fetch_array($result))
 
     $answer=$qna['answer']; //answer contains the correct answer
     echo $answer.' ';
-    if($responses[$i]==$answer)
+    if(strtoupper(($responses[$i]))==strtoupper($answer))
     $score+=1;
     // var_dump($answer);
     // compare with the answer
