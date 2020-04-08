@@ -31,7 +31,8 @@
              else
              echo "<p><strong>Test hasn't started yet<hr></strong><br>Looks like you are early.<br>Test will start at 11:00am on April 9,2020</p>";
              ?>              
-        
+
+             
             </div>
     </div>
 </body>
