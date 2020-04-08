@@ -14,15 +14,15 @@ $id=$_REQUEST['id'];
 
 if(isset($_REQUEST['message']) && $_REQUEST['message']=="warn")
 {   
-    
+    $warntime=date('d/m/y h:i:s a',time());
     $user=mysqli_query($conn,"SELECT * FROM registrations WHERE id='$id'" );
     $user=mysqli_fetch_array($user);
     if($user['comment']=="warned")
     {echo "warn2";
     exit();
-}
+    }
     else
-    $sql = "UPDATE registrations SET comment='warned' WHERE id='$id'";
+    $sql = "UPDATE registrations SET comment='warned', warntime='$warntime' WHERE id='$id'";
     if ($conn->query($sql) === TRUE)
     {
         echo "warned";
