@@ -5,7 +5,7 @@
             date_default_timezone_set('Asia/Kolkata');
 
             $settings["test-start-time"]="9april2020 11:00am";
-            $settings['test-end-time']="10april2020 11:59pm";
+            $settings['test-end-time']="9april2020 11:59am";
             if(time()>strtotime($settings['test-start-time'])&&time()<strtotime($settings['test-end-time']))
             {
                 header("location: ../events/techchef/login");
@@ -27,7 +27,7 @@
         <?php
             // echo date('d/m/y h:i:sa',time()); 
             if(time()>strtotime($settings['test-start-time']))
-             echo "<p><strong>Test is over<hr></strong><br>Looks like you are late.<br>Test expired at 11:59pm on April 10,2020</p>";
+             echo "<p><strong>Test is over<hr></strong><br>Looks like you are late.<br>Test expired at 12:00pm on April 9,2020</p>";
              else
              echo "<p><strong>Test hasn't started yet<hr></strong><br>Looks like you are early.<br>Test will start at 11:00am on April 9,2020</p>";
              ?>              
