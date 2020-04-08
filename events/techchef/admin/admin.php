@@ -21,13 +21,15 @@ header("location: index.php") ?>
     </div>
     <!-- ADMIN PANEL -->
     <!-- Show registered candidates with techchef -->
+    <button class="btn btn-info" onclick="window.location.href='registered-min.php'">Registrations (Name and Contact only)</button>
 
-    <button class="btn btn-info" onclick="window.location.href='registrations.php'">Show registered users</button>
+    <button class="btn btn-info" onclick="window.location.href='registrations.php'">Show Registrations in detail</button>
     
     <button class="btn btn-info" onclick="window.location.href='upload-questions.php'">Submit Questions</button>
 
     <button class="btn btn-info" onclick="window.location.href='view-questions.php'">View Questions</button>
 
+    <!-- <button class="btn btn-info" onclick="window.location.href='calculate-round1-score.php'">Calculate Round 1 scores</button> -->
 
 
 
