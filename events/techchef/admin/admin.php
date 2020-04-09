@@ -22,7 +22,8 @@ header("location: index.php") ?>
     <!-- ADMIN PANEL -->
     <!-- Show registered candidates with techchef -->
 
-    <!-- <button class="btn btn-info" onclick="window.location.href='registered-min.php'">Registrations (Name and Contact only)</button> -->
+    <button class="btn btn-info" onclick="window.location.href='round2.php'">View Round 2 submissions</button>
+
     <button class="btn btn-info" onclick="window.location.href='scores.php'">View Round 1 scores</button>
 
     <button class="btn btn-info" onclick="window.location.href='registrations.php'">Show Registrations in detail</button>
