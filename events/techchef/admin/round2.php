@@ -18,98 +18,8 @@ header("Location: index.php");
 
 <body>
 <div class="container">
-<?php 
-// Create ZIP file
-if(isset($_REQUEST['download'])){
-  $zip = new ZipArchive();
-  $filename = "TechChefRound2.zip";
 
-  if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
-    exit("cannot open <$filename>\n");
-  }
-
-  $dir = '../uploads/';
-
-  // Create zip
-  createZip($zip,$dir);
-
-  $zip->close();
-
-//   download
-
-  if (file_exists($filename)) {
-    header('Content-Type: application/zip');
-    header('Content-Disposition: attachment; filename="'.basename($filename).'"');
-    header('Content-Length: ' . filesize($filename));
-
-    flush();
-    readfile($filename);
-    // delete file
-    unlink($filename);
-  }
-
-
-
-}
-
-// Create zip
-function createZip($zip,$dir){
-  if (is_dir($dir)){
-
-    if ($dh = opendir($dir)){
-       while (($file = readdir($dh)) !== false){
- 
-         // If file
-         if (is_file($dir.$file)) {
-            if($file != '' && $file != '.' && $file != '..'){
- 
-               $zip->addFile($dir.$file);
-            }
-         }else{
-            // If directory
-            if(is_dir($dir.$file) ){
-
-              if($file != '' && $file != '.' && $file != '..'){
-
-                // Add empty directory
-                $zip->addEmptyDir($dir.$file);
-
-                $folder = $dir.$file.'/';
- 
-                // Read data of the folder
-                createZip($zip,$folder);
-              }
-            }
- 
-         }
- 
-       }
-       closedir($dh);
-     }
-  }
-}
-
-// Download Created Zip file
-// if(isset($_POST['download'])){
- 
-//   $filename = "TechChefRound2.zip";
-
-//   if (file_exists($filename)) {
-//      header('Content-Type: application/zip');
-//      header('Content-Disposition: attachment; filename="'.basename($filename).'"');
-//      header('Content-Length: ' . filesize($filename));
-
-//      flush();
-//      readfile($filename);
-//      // delete file
-//      unlink($filename);
- 
-//    }
-// }
-
-
-// show all files
-
+<?php
 echo '<table>
     <tr>
     <td>Round 2 uploads:</td>
@@ -118,7 +28,7 @@ $files = scandir('../uploads/');
 // $firstpart=$_SESSION['id'].'-'.$_SESSION['username'].'-';
 foreach($files as $file) {
 
-    if($file!=".."&&$file!=".")
+    if($file!=".."&&$file!="."&&$file!=".htaccess")
     echo '<tr><td>'.$file.'</td></tr>';
 
 }
@@ -129,11 +39,8 @@ echo '</table>';
 
 
 ?>
-<form method="post" action="round2.php">
     <br>
-<button class="btn btn-primary" type="submit" name="download">Download zip</button>
-</form>
-
+    <button class="btn btn-primary" onclick="window.location.href='download-round2.php'">Download ZIP</button>
 
 <style>
 
@@ -150,6 +57,11 @@ echo '</table>';
         tr:nth-child(odd) {background-color: #c2c2c2;}
 
 </style>
+
+
+
+
+
 
         </div>
         </body>
