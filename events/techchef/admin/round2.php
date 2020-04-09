@@ -16,6 +16,8 @@ header("Location: index.php");
     <title>Round 2 submissions</title>
 </head>
 
+<body>
+<div class="container">
 <?php 
 // Create ZIP file
 if(isset($_REQUEST['download'])){
@@ -108,21 +110,47 @@ function createZip($zip,$dir){
 
 // show all files
 
-
+echo '<table>
+    <tr>
+    <td>Round 2 uploads:</td>
+    </tr>';
 $files = scandir('../uploads/');
 // $firstpart=$_SESSION['id'].'-'.$_SESSION['username'].'-';
 foreach($files as $file) {
 
     if($file!=".."&&$file!=".")
-    echo '<div class="alert alert-info">'.$file.'</div>';
+    echo '<tr><td>'.$file.'</td></tr>';
 
 }
 
+echo '</table>';
 
 
 
 
 ?>
 <form method="post" action="round2.php">
+    <br>
 <button class="btn btn-primary" type="submit" name="download">Download zip</button>
 </form>
+
+
+<style>
+
+        td{
+            border-right:solid white 1px;
+            padding-right:5px;
+            padding-left:5px;
+            width:80vw;
+        }
+        tr:nth-child(even) {background-color: #f2f2f2;}
+        tr:nth-child(1) {background-color: #888888 !important;
+        font-weight: bolder;}
+        /* tr:nth-child(even) {background-color: white !important;} */
+        tr:nth-child(odd) {background-color: #c2c2c2;}
+
+</style>
+
+        </div>
+        </body>
+        </htmt>
