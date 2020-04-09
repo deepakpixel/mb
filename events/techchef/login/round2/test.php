@@ -197,7 +197,9 @@ $(document).ready(function(){
             success: function(resp){
                 if(resp == 'ok'){
                     $('#uploadForm')[0].reset();
-                    swal.fire("Uploaded!","File successfully uploaded","success");
+                    swal.fire("Uploaded!","File successfully uploaded","success").then(() => {
+                    window.location.href = "test.php";
+                    });
                     $(".progress-bar").width('0%');
                     $(".file-upload").removeClass('active');
                     $("#noFile").text("No file chosen..."); 
