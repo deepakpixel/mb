@@ -1,7 +1,7 @@
 <?php 
 $upload = 'err'; 
 if(!empty($_FILES['file'])){ 
-    echo 'gotit';
+    
     // File upload configuration 
     $targetDir = "../../uploads/"; 
     // $allowTypes = array('pdf', 'doc', 'docx', 'jpg', 'png', 'jpeg', 'gif'); 
