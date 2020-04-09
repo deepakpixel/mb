@@ -29,7 +29,7 @@ header("location: index.php") ?>
 
     <button class="btn btn-info" onclick="window.location.href='view-questions.php'">View Questions</button>
 
-    <!-- <button class="btn btn-info" onclick="window.location.href='calculate-round1-score.php'">Calculate Round 1 scores</button> -->
+    <button class="btn btn-info" onclick="window.location.href='calculate-round1-score.php'">Calculate Round 1 scores</button>
 
 
 

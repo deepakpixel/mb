@@ -26,12 +26,10 @@ require_once "../../../resources/config/db.php";
             <td>Email</td>
             <td>Phone</td>
             <td>College</td>
-            <td>Username</td>
-            <td>Password</td>
             <td>StartTime</td>
-            <td>Started</td>
             <td>Responses</td>
             <td>Comment</td>
+            <td>Score Round1</td>
         </tr>
     
 
@@ -47,12 +45,10 @@ require_once "../../../resources/config/db.php";
             <td>'.$user['email'].'</td>
             <td>'.$user['phone'].'</td>
             <td>'.$user['college'].'</td>
-            <td>'.$user['username'].'</td>
-            <td>'.$user['password'].'</td>
             <td>'.$user['starttime'].'</td>
-            <td>'.$user['isstarted'].'</td>
             <td>'.$user['responses'].'</td>
             <td>'.$user['comment'].'</td>
+            <td>'.$user['score1'].'</td>
 
             </tr>';
 
