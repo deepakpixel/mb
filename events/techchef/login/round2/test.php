@@ -126,13 +126,13 @@ $i=0;
 $files = scandir('../../uploads/');
 $firstpart=$_SESSION['id'].'-'.$_SESSION['username'].'-';
 foreach($files as $file) {
-    if($i==2)
-    echo '<div style="margin-bottom:12px;">Your uploads:</div>';
-    $i++;
+    
     if(strpos($file,$firstpart)===0)
     {
   $file=str_replace($firstpart,'',$file);
-  
+  if($i==0)
+   { echo '<div style="margin-bottom:12px;">Your uploads:</div>';
+    $i++;}
   echo '<div class="alert alert-success">'.$file.'</div>';
 //   var_dump($file);
     }
