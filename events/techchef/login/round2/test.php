@@ -84,7 +84,7 @@ Solution can be in form of image, document or video.
 <div class="container">
     <form id="uploadForm" enctype="multipart/form-data">
         <input name="id" type="text" value="<?php echo $_SESSION['id'] ?>" hidden>
-        <input name="name" type="text" value="<?php echo $_SESSION['name'] ?>" hidden>
+        <input name="username" type="text" value="<?php echo $_SESSION['username'] ?>" hidden>
   
 
 
@@ -124,7 +124,7 @@ Solution can be in form of image, document or video.
 <?php
 $i=0;
 $files = scandir('../../uploads/');
-$firstpart=$_SESSION['id'].'-'.$_SESSION['name'].'-';
+$firstpart=$_SESSION['id'].'-'.$_SESSION['username'].'-';
 foreach($files as $file) {
     if($i==2)
     echo '<div style="margin-bottom:12px;">Your uploads:</div>';
