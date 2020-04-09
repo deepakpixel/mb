@@ -39,5 +39,7 @@ $i++;
 $filesPath = '../uploads/';
 // Name of creating zip file
 $zipName = 'TechChefRound2.zip';
+if(file_exists($zipName))
+unlink($zipName);
 
 echo createZipAndDownload($files, $filesPath, $zipName);
