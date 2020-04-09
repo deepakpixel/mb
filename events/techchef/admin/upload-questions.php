@@ -18,7 +18,7 @@ header("Location: admin.php");
 
 require_once "../../../resources/config/db.php";
 
-$user=mysqli_query($conn,"SELECT * FROM question2" );
+$user=mysqli_query($conn,"SELECT * FROM questions" );
 $user=mysqli_num_rows($user);
 if($user==NULL)
 $user=0;

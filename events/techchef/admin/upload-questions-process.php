@@ -52,7 +52,7 @@ if(isset($_REQUEST['submit']))
                 if(strlen($optionc))
                     if(strlen($optiond))   
                         if(strlen($ans))         
-                    {    $sql = "INSERT INTO question2 (question,optiona,optionb,optionc,optiond,answer) VALUES('$question','$optiona','$optionb','$optionc','$optiond','$ans')";
+                    {    $sql = "INSERT INTO questions (question,optiona,optionb,optionc,optiond,answer) VALUES('$question','$optiona','$optionb','$optionc','$optiond','$ans')";
                         if ($conn->query($sql) === TRUE)
                         {
                             echo "Question-Submitted";
