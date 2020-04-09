@@ -5,7 +5,7 @@
             date_default_timezone_set('Asia/Kolkata');
 
             $settings["test-start-time"]="9april2020 11:00am";
-            $settings['test-end-time']="9april2020 11:59am";
+            $settings['test-end-time']="9april2020 12:10pm";
             if(time()>strtotime($settings['test-start-time'])&&time()<strtotime($settings['test-end-time']))
             {
                 header("location: ../events/techchef/login");
