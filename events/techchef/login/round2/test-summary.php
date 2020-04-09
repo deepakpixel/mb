@@ -15,12 +15,12 @@ else
     if ($conn->query($sql) === TRUE)
     {
     unset($_SESSION['loggedin']);
-    unset($_SESSION['isstarted']);
-    unset($_SESSION['issubmitted']);
-    unset($_SESSION['start']);
-    unset($_SESSION['end']);
+    // unset($_SESSION['isstarted']);
+    // unset($_SESSION['issubmitted']);
+    // unset($_SESSION['start']);
+    // unset($_SESSION['end']);
     }
-// session_destroy();
+session_destroy();
 }
 // var_dump($_SESSION);
 
@@ -43,7 +43,7 @@ $message="none";
     <meta charset="UTF-8">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/litera/bootstrap.min.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanks for taking test</title>
+    <title>Thanks for participating</title>
     <script src="./alert.js"></script>
 </head>
 <body>
@@ -55,7 +55,7 @@ $message="none";
 <?php endif; ?>
 <div class="thanks">
     <center><img src="/resources/images/tick.png" width="128px" alt="Test Submitted"></center>
-    <center><h1>Thanks for taking the test, <?php echo $_SESSION['name']?></h1></center>
+    <center><h1>Thanks for participating, <?php echo $_SESSION['name']?></h1></center>
     <!-- <center>Details for next round will be shared with you soon.</center> -->
     <br>
 <div class="feedback">
@@ -64,7 +64,7 @@ $message="none";
     
     </div>
         <div class="textarea">
-            <textarea name="feedback" id="feedback-text" Placeholder="Write about your test experience, dificiculty level and please tell us if there is anything we need to improve" cols="30" rows="10"></textarea>
+            <textarea name="feedback" id="feedback-text" Placeholder="Tell us your experience during the whole event process or if there is something we need to improve." cols="30" rows="10"></textarea>
         </div>
     </div>
     <input name="id" type="text" value="<?php echo $_SESSION['id'] ?>" hidden>

@@ -13,7 +13,7 @@ $prob=rand(1,$probs);
 echo $prob;
 var_dump($_SESSION);
 // $_SESSION['set-number']=3;
-session_destroy();
+// session_destroy();
 // $responses=array(
 //     "name"=>"deepak"
 // );

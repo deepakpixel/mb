@@ -158,13 +158,13 @@ $message=$_REQUEST['m'];
 
 <?php if($message=="expired") : ?>
        <script>
-		   swal.fire("Test Expired","Test was expired at 11:59am on April 10, 2020","info");
+		   swal.fire("Event is finished!","Sorry! But looks like you are late.","info");
 	   </script>
     <?php endif; ?>
 
     <?php if($message=="early") : ?>
         <script>
-		   swal.fire("Test not started","Test will start at 11:00am on April 9, 2020","info");
+		   swal.fire("Round not started yet!","Looks like you are early.","info");
 	   </script>
     <?php endif; ?>
 
@@ -176,6 +176,6 @@ $message=$_REQUEST['m'];
 
     <?php if($message=="submitted") : ?>
         <script>
-		   swal.fire("Test Submitted","Your test is already submitted","info");
+		   swal.fire("Already submitted","Don't worry your submissions are already recorded.","info");
 	   </script>
     <?php endif; ?>

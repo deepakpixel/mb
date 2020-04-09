@@ -41,8 +41,6 @@ else
 {       
     $user=mysqli_fetch_array($user);
 
-  
-    
     $_SESSION['loggedin']='tc-candidate';
     $_SESSION['username']=$user['username'];
     $_SESSION['name']=$user['name'];
@@ -54,22 +52,22 @@ else
     // $_SESSION['issubmitted']=$user['issubmitted'];
     // $r=$user['responses'][0];
     // $_SESSION['set-number']=$r;
-    if($user['problemassigned']==0)
-    {
-    $probs=mysqli_query($conn,"SELECT * FROM problemstatements");
-    $probs=mysqli_num_rows($probs);
+    // if($user['problemassigned']==0)
+    // {
+    // $probs=mysqli_query($conn,"SELECT * FROM problemstatements");
+    // $probs=mysqli_num_rows($probs);
     
-    $prob=rand(1,$probs);
-    $_SESSION['problem-assigned']=$prob;
-    $id=$user['id'];
-    $probs=mysqli_query($conn,"UPDATE registrations set problemassigned='$prob' WHERE id='$id'");
+    // $prob=rand(1,$probs);
+    // $_SESSION['problem-assigned']=$prob;
+    // $id=$user['id'];
+    // $probs=mysqli_query($conn,"UPDATE registrations set problemassigned='$prob' WHERE id='$id'");
 
-    }
-    else
-    $_SESSION['problem-assigned']=$user['problemassigned'];
+    // }
+    // else
+    // $_SESSION['problem-assigned']=$user['problemassigned'];
 
     // ********************************************************************************************************************************
-    $_SESSION['hints-used']=1;
+    // $_SESSION['hints-used']=1;
     
     // session should carry id to end test
 
