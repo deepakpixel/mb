@@ -177,6 +177,10 @@ $(document).ready(function(){
                         var percentComplete = (Math.floor((evt.loaded / evt.total) * 100));
                         $(".progress-bar").width(percentComplete + '%');
                         $(".progress-bar").html(percentComplete+'%');
+                        if(percentComplete==100){
+                            $(".progress-bar").html('UPLOADING');
+
+                        }
                     }
                 }, false);
                 return xhr;
