@@ -107,8 +107,8 @@ Solution can be in form of image, document or video.
             <!-- <label for="fileInput" class="btn"> Choose File:</label> -->
             <!-- <input type="file" name="file" id="fileInput"> -->
 
-        <div class="progress" style="margin-top:10px; margin-bottom:10px;">
-            <div class="progress-bar"></div>
+        <div class="progress" style="margin-top:10px; margin-bottom:10px;background-color:#4582EC">
+            <div class="progress-bar" style="transition:none;"></div>
         </div>
         <!-- <label>Choose File:</label> -->
         <input type="submit" name="submit" value="UPLOAD" class="btn btn-info">
@@ -174,10 +174,10 @@ $(document).ready(function(){
                 var xhr = new window.XMLHttpRequest();
                 xhr.upload.addEventListener("progress", function(evt) {
                     if (evt.lengthComputable) {
-                        // var percentComplete = (Math.floor((evt.loaded / evt.total) * 100));
+                        var percentComplete = (Math.floor((evt.loaded / evt.total) * 100));
                         // $(".progress-bar").width(percentComplete + '%');
                         $(".progress-bar").width('100%');
-                        $(".progress-bar").html('Uploading...');
+                        $(".progress-bar").html('UPLOADING...');
                     }
                 }, false);
                 return xhr;
