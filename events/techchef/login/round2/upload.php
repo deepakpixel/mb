@@ -21,5 +21,7 @@ if(!empty($_FILES['file'])){
     $upload='largefile';
     // }
 }
-echo $upload; 
+// unset($_SESSION['message']);
+header('location: test.php?m='.$upload);
+// echo $upload; 
 ?>

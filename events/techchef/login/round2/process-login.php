@@ -45,6 +45,7 @@ else
     $_SESSION['username']=$user['username'];
     $_SESSION['name']=$user['name'];
     $_SESSION['id']=$user['id'];
+    $_SESSION['message']='none';
     // $_SESSION['end']=$user['end'];
     // $_SESSION['start']=$user['start'];
     // $_SESSION['isstarted']=$user['isstarted'];

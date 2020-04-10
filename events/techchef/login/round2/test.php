@@ -4,7 +4,19 @@
             session_start();
             if (!((isset($_SESSION['loggedin'])) && $_SESSION['loggedin']=="tc-candidate"))
             header("location: index.php");
+
+//             if(!isset($_REQUEST['m']))
+// $_SESSION['message']="none";
+$m="none";
+            if(isset($_REQUEST['m']))
+            {   
+                
+                $m=$_REQUEST['m'];
+                // header('location: test.php');
+            }
+
            ?>
+
 <html lang=en>
     <head><title>Techchef Round 2</title>
     <script src="../alert.js"></script>
@@ -82,7 +94,7 @@ $candidate_name=$_SESSION['name'];
 Solution can be in form of image, document or video.
 </div>
 <div class="container">
-    <form id="uploadForm" enctype="multipart/form-data">
+    <form action="upload.php" method="post" id="uploadForm" enctype="multipart/form-data">
         <input name="id" type="text" value="<?php echo $_SESSION['id'] ?>" hidden>
         <input name="username" type="text" value="<?php echo $_SESSION['username'] ?>" hidden>
   
@@ -160,84 +172,120 @@ swal.fire("READ CAREFULLY","In detail how to submit")
 </script> -->
 
 
+<?php
+
+     if($m!="none")
+     { 
+    //      if($m!="none")
+    // $_SESSION['message']="none";
 
 
+        // echo '<script>alert("'.$m.'")</script>';
+
+         if($m=="ok")
+{         echo '<script>swal.fire("Uploaded!","File successfully uploaded","success");</script>';
+    // $_SESSION['message']="none";
+
+}         if($m=="duplicate")
+{         echo '<script>swal.fire("File already present!","File is already uploaded","warning");</script>';
+    // $_SESSION['message']="none";
+
+}         if($m=="largefile")
+{         echo '<script>swal.fire("File too large!","Max upload size is 20MB","warning");</script>';
+    // $_SESSION['message']="none";
+
+}         if($m=="err")
+{         echo '<script>swal.fire("Choose a file!","Please select a file to upload","warning");</script>';
+    // $_SESSION['message']="none";
+
+}
+
+     }
+// $_SESSION['message']="none";
+     ?>
+
+
+<?php
+// unset($_SESSION['message'])
+// $_SESSION['message']="none";
+
+?>
 
 
 <script>
-$(document).ready(function(){
-    // File upload via Ajax
-    $("#uploadForm").on('submit', function(e){
-        e.preventDefault();
-        $.ajax({
-            xhr: function() {
-                var xhr = new window.XMLHttpRequest();
-                xhr.upload.addEventListener("progress", function(evt) {
-                    if (evt.lengthComputable) {
-                        var percentComplete = (Math.floor((evt.loaded / evt.total) * 100));
-                        // $(".progress-bar").width(percentComplete + '%');
-                        $(".progress-bar").width('100%');
-                        $(".progress-bar").html('UPLOADING...');
-                    }
-                }, false);
-                return xhr;
-            },
-            type: 'POST',
-            url: 'upload.php',
-            data: new FormData(this),
-            contentType: false,
-            cache: false,
-            processData:false,
-            beforeSend: function(){
-                $(".progress-bar").width('0%');
-                // $('#uploadStatus').html('<img src="images/loading.gif"/>');
-            },
-            error:function(){
-                $('#uploadStatus').html('<p style="color:#EA4335;">File upload failed, please try again.</p>');
-            },
-            success: function(resp){
-                if(resp == 'ok'){
-                    $('#uploadForm')[0].reset();
-                    swal.fire("Uploaded!","File successfully uploaded","success").then(() => {
-                    window.location.href = "test.php";
-                    });
-                    $(".progress-bar").width('0%');
-                    $(".file-upload").removeClass('active');
-                    $("#noFile").text("No file chosen..."); 
-                    // $('#uploadStatus').html('<p style="color:#28A74B;">File has uploaded successfully!</p>');
-                }else if(resp == 'err'){
-                    // $('#uploadStatus').html('<p style="color:#EA4335;">Please select a valid file to upload.</p>');
-                    swal.fire("Choose a file!","Please select a file to upload","warning");
-                    $(".progress-bar").width('0%');
+// $(document).ready(function(){
+//     // File upload via Ajax
+//     $("#uploadForm").on('submit', function(e){
+//         e.preventDefault();
+//         $.ajax({
+//             xhr: function() {
+//                 var xhr = new window.XMLHttpRequest();
+//                 xhr.upload.addEventListener("progress", function(evt) {
+//                     if (evt.lengthComputable) {
+//                         var percentComplete = (Math.floor((evt.loaded / evt.total) * 100));
+//                         // $(".progress-bar").width(percentComplete + '%');
+//                         $(".progress-bar").width('100%');
+//                         $(".progress-bar").html('UPLOADING...');
+//                     }
+//                 }, false);
+//                 return xhr;
+//             },
+//             type: 'POST',
+//             url: 'upload.php',
+//             data: new FormData(this),
+//             contentType: false,
+//             cache: false,
+//             processData:false,
+//             beforeSend: function(){
+//                 $(".progress-bar").width('0%');
+//                 // $('#uploadStatus').html('<img src="images/loading.gif"/>');
+//             },
+//             error:function(){
+//                 $('#uploadStatus').html('<p style="color:#EA4335;">File upload failed, please try again.</p>');
+//             },
+//             success: function(resp){
+//                 if(resp == 'ok'){
+//                     $('#uploadForm')[0].reset();
+//                     swal.fire("Uploaded!","File successfully uploaded","success").then(() => {
+//                     window.location.href = "test.php";
+//                     });
+//                     $(".progress-bar").width('0%');
+//                     $(".file-upload").removeClass('active');
+//                     $("#noFile").text("No file chosen..."); 
+//                     // $('#uploadStatus').html('<p style="color:#28A74B;">File has uploaded successfully!</p>');
+//                 }else if(resp == 'err'){
+//                     // $('#uploadStatus').html('<p style="color:#EA4335;">Please select a valid file to upload.</p>');
+//                     swal.fire("Choose a file!","Please select a file to upload","warning");
+//                     $(".progress-bar").width('0%');
 
-                }else if(resp == 'largefile'){
-                    // $('#uploadStatus').html('<p style="color:#EA4335;">Please select a valid file to upload.</p>');
-                    swal.fire("Large file size!","Max upload size is 20MB","warning");
-                    $(".progress-bar").width('0%');
+//                 }else if(resp == 'largefile'){
+//                     // $('#uploadStatus').html('<p style="color:#EA4335;">Please select a valid file to upload.</p>');
+//                     swal.fire("Large file size!","Max upload size is 20MB","warning");
+//                     $(".progress-bar").width('0%');
 
-                }else if(resp == 'duplicate'){
-                    // $('#uploadStatus').html('<p style="color:#EA4335;">Please select a valid file to upload.</p>');
-                    swal.fire("File already present!","File is already uploaded","warning");
-                    $(".progress-bar").width('0%');
+//                 }else if(resp == 'duplicate'){
+//                     // $('#uploadStatus').html('<p style="color:#EA4335;">Please select a valid file to upload.</p>');
+//                     swal.fire("File already present!","File is already uploaded","warning");
+//                     $(".progress-bar").width('0%');
                    
 
-                }
-            }
-        });
-    });
+//                 }
+//             }
+//         });
+//     });
 	
-    // File type validation
-    // $("#fileInput").change(function(){
-    //     var allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.ms-office', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
-    //     var file = this.files[0];
-    //     var fileType = file.type;
-    //     if(!allowedTypes.includes(fileType)){
-    //         alert('Please select a valid file (PDF/DOC/DOCX/JPEG/JPG/PNG/GIF).');
-    //         $("#fileInput").val('');
-    //         return false;
-    //     }
-    // });
-});
+//     // File type validation
+//     // $("#fileInput").change(function(){
+//     //     var allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.ms-office', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
+//     //     var file = this.files[0];
+//     //     var fileType = file.type;
+//     //     if(!allowedTypes.includes(fileType)){
+//     //         alert('Please select a valid file (PDF/DOC/DOCX/JPEG/JPG/PNG/GIF).');
+//     //         $("#fileInput").val('');
+//     //         return false;
+//     //     }
+//     // });
+// });
 
 
 $('#chooseFile').bind('change', function () {

@@ -1,16 +1,20 @@
 <?php
 session_start();
-require_once "../../../../resources/config/db.php";
+// require_once "../../../../resources/config/db.php";
 
-$settings=file_get_contents("../../config/settings.json");
-$settings= json_decode($settings,true); //converts json to array
+// $settings=file_get_contents("../../config/settings.json");
+// $settings= json_decode($settings,true); //converts json to array
 
-// session_destroy();
-$probs=mysqli_query($conn,"SELECT * FROM problemstatements");
-$probs=mysqli_num_rows($probs);
+// // session_destroy();
+// $probs=mysqli_query($conn,"SELECT * FROM problemstatements");
+// $probs=mysqli_num_rows($probs);
 
-$prob=rand(1,$probs);
-echo $prob;
+// $prob=rand(1,$probs);
+// echo $prob;
+// $_SESSION['m']="deepak";
+// echo $_SESSION['m'];
+// $_SESSION['m']="hello";;
+
 var_dump($_SESSION);
 // $_SESSION['set-number']=3;
 // session_destroy();
