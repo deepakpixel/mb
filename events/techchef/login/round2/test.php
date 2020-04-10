@@ -174,9 +174,10 @@ $(document).ready(function(){
                 var xhr = new window.XMLHttpRequest();
                 xhr.upload.addEventListener("progress", function(evt) {
                     if (evt.lengthComputable) {
-                        var percentComplete = (Math.floor((evt.loaded / evt.total) * 100));
-                        $(".progress-bar").width(percentComplete + '%');
-                        $(".progress-bar").html(percentComplete+'%');
+                        // var percentComplete = (Math.floor((evt.loaded / evt.total) * 100));
+                        // $(".progress-bar").width(percentComplete + '%');
+                        $(".progress-bar").width('100%');
+                        $(".progress-bar").html('Uploading...');
                     }
                 }, false);
                 return xhr;
